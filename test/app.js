@@ -8,7 +8,7 @@ app.delete("/api/test/:id", deleteMessage);
 var connectionString = 'mongodb://127.0.0.1:27017/test'; // for local
 if(process.env.MLAB_USERNAME_WEBDEV) { // check if running remotely
     var username = process.env.ML_LAB_USERNAME; // get from environment
-    var password = process.env.ML_LAB_PASSWORD;
+    var password = process.env.ML_LAB_PASSWORD; // get from environment
     connectionString = 'mongodb://' + username + ':' + password;
     connectionString += '@ds157268.mlab.com:57268/heroku_nh37fqq4'; // user yours
 }
