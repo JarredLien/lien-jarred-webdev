@@ -12,11 +12,6 @@ input {
     position: center;
 }
 
-.jll .jll-widget {
-    margin-top: 80px;
-    margin-bottom: 80px;
-}
-
 .jll .navbar-toggle {
     color: white;
     background-color: deepskyblue;
@@ -30,15 +25,6 @@ input {
     position: relative;
     transform: translateY(25%);
     margin-right: 45px;
-}
-
-.jll .form-group {
-    margin-top: 60px;
-    margin-bottom: -50px;
-}
-
-.jll .container-fluid .jll-buttons {
-    margin-top: 60px;
 }
 
 .jll .list-group-item {
