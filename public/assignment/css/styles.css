@@ -2,15 +2,73 @@ input {
     margin-bottom: 5px;
 }
 
-body {
-    padding-top: 60px;
-}
-
 .jll .navbar-default {
-    background-color: #5061a0;
-    border-color: #262d4c;
+    background-color: deepskyblue;
+    border-color: deepskyblue;
 }
 
 .jll .navbar-default .navbar-brand {
     color: white;
+    position: center;
+}
+
+.jll .jll-widget {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.jll .navbar-toggle {
+    color: white;
+    background-color: deepskyblue;
+    border-color: deepskyblue;
+}
+
+.jll .navbar-default .btn-default {
+    color: white;
+    background-color: deepskyblue;
+    border-color: deepskyblue;
+    position: relative;
+    transform: translateY(25%);
+    margin-right: 45px;
+}
+
+.jll .form-group {
+    margin-top: 60px;
+    margin-bottom: -50px;
+}
+
+.jll .container-fluid .jll-buttons {
+    margin-top: 60px;
+}
+
+.jll .list-group-item {
+    position: relative;
+    transform: translateY(25%);
+    border-color: white;
+}
+
+.jll .broski {
+    margin-top: 100px;
+}
+
+.jll .list-group-item .btn-default {
+    border-color: white;
+    hover-color: white;
+}
+
+.jll .page-edit {
+    position: relative;
+    margin-top: 60px;
+}
+
+.jll .jll-split-view-left {
+    margin-top: 50px;
+}
+
+.jll .jll-split-view-right {
+    margin-top: 60px;
+}
+
+.jll .widgets {
+    margin-top: 50px;
 }
