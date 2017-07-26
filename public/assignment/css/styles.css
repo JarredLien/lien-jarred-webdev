@@ -2,12 +2,17 @@ input {
     margin-bottom: 5px;
 }
 
-.jll .navbar-default {
+body {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.navbar-default {
     background-color: deepskyblue;
     border-color: deepskyblue;
 }
 
-.jll .navbar-default .navbar-brand {
+.navbar-default .navbar-brand {
     color: white;
     position: center;
 }
@@ -17,13 +22,13 @@ input {
     margin-bottom: 80px;
 }
 
-.jll .navbar-toggle {
+.navbar-default .navbar-toggle {
     color: white;
     background-color: deepskyblue;
     border-color: deepskyblue;
 }
 
-.jll .navbar-default .btn-default {
+.navbar-default .btn-default {
     color: white;
     background-color: deepskyblue;
     border-color: deepskyblue;
@@ -32,43 +37,42 @@ input {
     margin-right: 45px;
 }
 
-.jll .form-group {
-    margin-top: 60px;
-    margin-bottom: -50px;
+.jll .broski {
+    margin-top: 100px;
 }
 
-.jll .container-fluid .jll-buttons {
-    margin-top: 60px;
+.jll-widget-container {
+    z-index: 1000;
+    right: 10px;
+    position: absolute;
+    padding-left: 6px;
+    background-color: white;
+    padding-bottom: 5px;
+    border-bottom-left-radius: 2px;
 }
 
-.jll .list-group-item {
+img {
+    max-width: 100%;
+}
+
+iframe {
+    max-width: 100%;
+}
+
+.list-group-item {
     position: relative;
     transform: translateY(25%);
     border-color: white;
 }
 
-.jll .broski {
-    margin-top: 100px;
-}
-
-.jll .list-group-item .btn-default {
-    border-color: white;
-    hover-color: white;
-}
-
-.jll .page-edit {
-    position: relative;
-    margin-top: 60px;
-}
-
-.jll .jll-split-view-left {
-    margin-top: 50px;
-}
-
-.jll .jll-split-view-right {
-    margin-top: 60px;
+.list-group {
+    font-size: 15px;
 }
 
 .jll .widgets {
     margin-top: 50px;
+}
+
+a {
+    text-decoration: none !important;
 }
