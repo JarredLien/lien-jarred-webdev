@@ -40,7 +40,7 @@
 <div class="container-fluid">
 
     <wbdv-sortable sorted="model.sorted(start, end)"
-                  data="model.widgets">
+                   data="model.widgets">
 
         <div ng-repeat="widget in model.widgets | orderBy : 'order'"
              ng-switch="widget.widgetType">
