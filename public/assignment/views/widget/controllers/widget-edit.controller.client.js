@@ -12,23 +12,49 @@
         vm.deleteWidget = deleteWidget;
 
         vm.uid = $routeParams.uid;
-        vm.pid = $routeParams.pid;
         vm.wid = $routeParams.wid;
+        vm.pid = $routeParams.pid;
         vm.wgid = $routeParams.wgid;
 
         function init() {
-            vm.widget = angular.copy(WidgetService.findWidgetById(vm.wgid));
+            var promise = WidgetService.findWidgetById(vm.wgid);
+            promise
+                .then(
+                    function(response) {
+                        vm.widget = response.data;
+                    },
+                    function(error) {
+                        vm.error = error.data;
+                    });
         }
         init();
 
         function deleteWidget() {
-            WidgetService.deleteWidget(vm.wgid);
-            $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
+            var promise = WidgetService.deleteWidget(vm.wgid);
+            promise
+                .then(
+                    function(response) {
+                        vm.success = "Widget successfully deleted";
+                        $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
+                    },
+                    function(error) {
+                        vm.error = error.data;
+                    }
+                )
         }
 
         function updateWidget() {
-            WidgetService.updateWidget(vm.wgid, vm.widget);
-            $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
+            var promise = WidgetService.updateWidget(vm.wgid, vm.widget);
+            promise
+                .then(
+                    function(response) {
+                        vm.success = "Widget successfully updated";
+                        $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
+                    },
+                    function(error) {
+                        vm.error = error.data;
+                    }
+                )
         }
     }
 })();

@@ -1,7 +1,4 @@
-/**
- * Created by Jarred on 7/25/17.
- */
-(function() {
+(function () {
     angular
         .module("WamApp")
         .controller("WidgetListController", WidgetListController);
@@ -12,12 +9,21 @@
         vm.getURL = getURL;
 
         vm.uid = $routeParams.uid;
-        vm.pid = $routeParams.pid;
         vm.wid = $routeParams.wid;
+        vm.pid = $routeParams.pid;
 
         function init() {
-            vm.widgets = WidgetService.findWidgetsByPageId(vm.pid);
+            var promise = WidgetService.findWidgetsByPageId(vm.pid);
+            promise
+                .then(
+                    function (response) {
+                        vm.widgets = response.data;
+                    },
+                    function (error) {
+                        vm.error = error.data;
+                    });
         }
+
         init();
 
         function getHTML(widget) {
@@ -30,5 +36,10 @@
             var url = "https://www.youtube.com/embed/" + id;
             return $sce.trustAsResourceUrl(url);
         }
+
+        $(".widget-container")
+            .sortable({
+                axis: 'y'
+            })
     }
 })();

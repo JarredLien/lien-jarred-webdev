@@ -1,7 +1,7 @@
 /**
  * Created by Jarred on 7/23/17.
  */
-(function() {
+(function () {
     angular
         .module("WamApp")
         .controller("EditWebsiteController", EditWebsiteController);
@@ -15,18 +15,45 @@
         vm.wid = $routeParams.wid;
 
         function init() {
-            vm.website = angular.copy(WebsiteService.findWebsiteById(vm.wid));
+            var promise = WebsiteService.findWebsiteById(vm.wid);
+            promise
+                .then(
+                    function (response) {
+                        vm.website = response.data;
+                    },
+                    function (error) {
+                        vm.error = error.data;
+                    });
         }
+
         init();
 
-        function deleteWebsite() {
-            WebsiteService.deleteWebsite(vm.wid);
-            $location.url("/user/"+ vm.uid + "/website");
+        function updateWebsite() {
+            var promise = WebsiteService.updateWebsite(vm.wid, vm.website);
+            promise
+                .then(
+                    function (res) {
+                        vm.success = "Website Updated";
+                        $location.url("/user/" + vm.uid + "/website");
+                    },
+                    function (error) {
+                        vm.error = error.data;
+                    }
+                )
         }
 
-        function updateWebsite() {
-            WebsiteService.updateWebsite(vm.wid, vm.website);
-            $location.url("/user/"+ vm.uid + "/website");
+        function deleteWebsite() {
+            var promise = WebsiteService.deleteWebsite(vm.wid);
+            promise
+                .then(
+                    function (res) {
+                        vm.success = "Website Deleted";
+                        $location.url("/user/" + vm.uid + "/website");
+                    },
+                    function (error) {
+                        vm.error = error.data;
+                    }
+                )
         }
     }
 })();

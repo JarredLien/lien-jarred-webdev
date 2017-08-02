@@ -1,12 +1,16 @@
 <div class="container-fluid">
-        <div class="form-group">
-
+    <div class="form-group"
+         ng-class="{ 'has-error': form.name.$error.required && model.submitted}">
             <label for="widget-name">Name</label>
             <input ng-model="model.widget.name"
                    id="widget-name"
                    type="text"
                    class="form-control"
-                   placeholder="My Header"/>
+                   placeholder=""/>
+            <span ng-show="form.name.$error.required && model.submitted"
+                  class="help-block">
+                Name Required
+            </span>
         </div>
 
         <div class="form-group">
