@@ -4,54 +4,56 @@
         <label for="widget-name">Name</label>
         <input ng-model="model.widget.name"
                id="widget-name"
+               name="name"
                type="text"
                class="form-control"
-               placeholder="My Widget Name"/>
+               placeholder=""
+               required/>
         <span ng-show="form.name.$error.required && model.submitted"
               class="help-block">
-                    Name Required
-                </span>
+                Name Required
+            </span>
     </div>
-
     <div class="form-group">
         <label for="widget-text">Text</label>
         <input ng-model="model.widget.text"
                id="widget-text"
                type="text"
                class="form-control"
-               placeholder="My Widget Text"/>
+               placeholder=""/>
     </div>
 
     <div class="form-group">
-        <label for="widget-url">URL</label>
-        <input ng-model="model.widget.url"
-               id="widget-url"
+        <label for="widget-rows">Rows</label>
+        <input ng-model="model.widget.rows"
+               id="widget-rows"
+               type="number"
+               class="form-control"
+               placeholder="">
+    </div>
+
+    <div class="form-group">
+        <label for="widget-placeholder">Placeholder</label>
+        <input ng-model="model.widget.placeholder"
+               id="widget-placeholder"
                type="text"
                class="form-control"
-               placeholder="www.exampleimage.com/image"/>
+               placeholder="">
     </div>
 
     <div class="form-group">
-        <label for="widget-width">Width</label>
-        <input ng-model="model.widget.width"
-               id="widget-width"
-               type="text"
-               class="form-control"
-               placeholder="100%"/>
-    </div>
 
-    <div class="form-group">
-        <label for="widget-file">Upload</label>
-        <input ng-model="model.widget.file"
-               id="widget-file"
-               type="file"
-               class="form-control"/>
+        <div class="input-group">
+            <input type="text"
+                   class="form-control"
+                   value="Formatted"
+                   readonly>
+            <span class="input-group-addon">
+                    <input ng-model="model.widget.formatted"
+                           type="checkbox">
+                </span>
+        </div>
     </div>
-
-    <a class="btn btn-block btn-primary"
-       href="">
-        Upload Image
-    </a>
 
     <a ng-click="model.deleteWidget()"
        class="btn btn-block btn-danger">

@@ -1,7 +1,8 @@
 /**
  * Created by Jarred on 7/24/17.
  */
-(function() {
+
+(function () {
     angular
         .module("WamApp")
         .controller("PageListController", PageListController);
@@ -12,8 +13,17 @@
         vm.wid = $routeParams.wid;
 
         function init() {
-            vm.pages = PageService.findPageByWebsiteId(vm.wid);
+            var promise = PageService.findPageByWebsiteId(vm.wid);
+            promise
+                .then(
+                    function (response) {
+                        vm.pages = response.data;
+                    },
+                    function (error) {
+                        vm.error = error.data;
+                    });
         }
+
         init();
     }
 })();

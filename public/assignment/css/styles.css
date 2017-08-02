@@ -51,6 +51,20 @@ body {
     border-bottom-left-radius: 2px;
 }
 
+.youtube-widget {
+    height: 0;
+    position: relative;
+    padding-bottom: 55%;
+}
+
+.youtube-widget iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
 img {
     max-width: 100%;
 }
