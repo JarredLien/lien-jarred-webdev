@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="WamApp">
+<html lang="en" ng-app="searchApp">
 <head>
     <meta charset="UTF-8">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -18,41 +18,30 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <script src="js/jquery.ui.touch-punch.min.js"></script>
-    <script src="js/textAngular-rangy.min.js"></script>
-    <script src="js/textAngular.min.js"></script>
-    <script src="js/textAngular-sanitize.min.js"></script>
+    <!-- <script src="js/jquery.ui.touch-punch.min.js"></script> -->
+    <!-- <script src="js/textAngular-rangy.min.js"></script> -->
+    <!-- <script src="js/textAngular.min.js"></script> -->
+    <!-- <script src="js/textAngular-sanitize.min.js"></script> -->
 
-    <script src="directives/wbdv-sortable.js"></script>
+    <!-- <script src="directives/wbdv-sortable.js"></script> -->
 
     <script src="app.js"></script>
     <script src="config.js"></script>
 
-    <script src="service/user.service.client.js"></script>
-    <script src="service/website.service.client.js"></script>
-    <script src="service/page.service.client.js"></script>
-    <script src="service/widget.service.client.js"></script>
+    <!-- <script src="service/user.service.client.js"></script> -->
 
-    <script src="views/user/controllers/login.controller.client.js"></script>
+<!--     <script src="views/user/controllers/login.controller.client.js"></script>
     <script src="views/user/controllers/profile.controller.client.js"></script>
     <script src="views/user/controllers/register.controller.client.js"></script>
+ -->
+    <script src="views/search/controllers/search.controller.client.js"></script>
 
-    <script src="views/website/controllers/website-list.controller.client.js"></script>
-    <script src="views/website/controllers/website-edit.controller.client.js"></script>
-    <script src="views/website/controllers/website-new.controller.client.js"></script>
 
-    <script src="views/page/controllers/page-list.controller.client.js"></script>
-    <script src="views/page/controllers/page-edit.controller.client.js"></script>
-    <script src="views/page/controllers/page-new.controller.client.js"></script>
-
-    <script src="views/widget/controllers/widget-list.controller.client.js"></script>
-    <script src="views/widget/controllers/widget-chooser.controller.client.js"></script>
-    <script src="views/widget/controllers/widget-edit.controller.client.js"></script>
 </head>
 <body>
 
     <a href="#profile">Profile</a>
-    <a href="#teams">Add/Remove Teams</a>
+    <a href="#!search">Add/Remove Teams</a>
     <a href="#scores">Scores</a>
     <a href="#stats">Stats</a>
     <a href="#standings">Standings</a>

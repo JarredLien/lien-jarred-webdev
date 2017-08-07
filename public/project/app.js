@@ -4,24 +4,24 @@
 (function () {
     angular
         .module("searchApp", ["ngRoute"])
-        .controller("searchController", searchController)
+        // .controller("SearchController", SearchController)
         .service("sportService", sportService);
 
-    function searchController(sportService) {
-        var model = this;
+    // function searchController(sportService) {
+    //     var model = this;
 
-        model.searchSport = searchSport;
+    //     model.searchSport = searchSport;
 
-        function init() {
+    //     function init() {
 
-        }
+    //     }
 
-        init();
+    //     init();
 
-        function searchSport(sport) {
-            sportService.searchSport(sport);
-        }
-    }
+    //     function searchSport(sport) {
+    //         sportService.searchSport(sport);
+    //     }
+    // }
 
     function sportService($http) {
         this.searchSport = searchSport;

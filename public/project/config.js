@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("WamApp")
+        .module("searchApp")
         .config(Configuration);
 
     function Configuration($routeProvider) {

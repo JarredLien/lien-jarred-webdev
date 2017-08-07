@@ -3,6 +3,10 @@
  */
 (function() {
     angular
-        .module("WamApp")
+        .module("searchApp")
         .controller("SearchController", SearchController);
+
+    function SearchController() {
+
+    }
 })();
