@@ -8,6 +8,8 @@
 
     function EditWebsiteController($location, $routeParams, WebsiteService) {
         var vm = this;
+        vm.submitted = false;
+
         vm.updateWebsite = updateWebsite;
         vm.deleteWebsite = deleteWebsite;
 
@@ -29,17 +31,21 @@
         init();
 
         function updateWebsite() {
-            var promise = WebsiteService.updateWebsite(vm.wid, vm.website);
-            promise
-                .then(
-                    function (res) {
-                        vm.success = "Website Updated";
-                        $location.url("/user/" + vm.uid + "/website");
-                    },
-                    function (error) {
-                        vm.error = error.data;
-                    }
-                )
+            vm.submitted = true;
+            if (vm.website.name && vm.website.name != "") {
+                var promise = WebsiteService.updateWebsite(vm.wid, vm.website);
+                promise
+                    .then(
+                        function (res) {
+                            vm.success = "Website Updated";
+                            $location.url("/user/" + vm.uid + "/website");
+                            vm.submitted = false;
+                        },
+                        function (error) {
+                            vm.error = error.data;
+                        }
+                    )
+            }
         }
 
         function deleteWebsite() {

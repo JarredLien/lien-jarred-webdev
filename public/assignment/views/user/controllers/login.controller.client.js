@@ -8,6 +8,7 @@
 
     function LoginController($location, UserService) {
         var vm = this;
+        vm.submitted = false;
 
         vm.login = login;
         function login(username, password) {

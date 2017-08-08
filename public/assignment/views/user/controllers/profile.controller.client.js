@@ -1,7 +1,6 @@
 /**
  * Created by Jarred on 7/23/17.
  */
-
 (function () {
     angular
         .module("WamApp")
