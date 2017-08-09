@@ -1,1 +1,3 @@
-test
+<select ng-model="selectedSport" ng-change="findTeamsBySport()">
+  <option ng-repeat="sport in sportOptions" value="{{sport.value}}">{{sport.label}}
+</select>

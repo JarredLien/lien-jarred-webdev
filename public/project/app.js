@@ -5,7 +5,7 @@
     angular
         .module("searchApp", ["ngRoute"])
         // .controller("SearchController", SearchController)
-        .service("sportService", sportService);
+        // .service("sportService", sportService);
 
     // function searchController(sportService) {
     //     var model = this;

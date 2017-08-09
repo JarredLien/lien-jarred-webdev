@@ -6,7 +6,35 @@
         .module("searchApp")
         .controller("SearchController", SearchController);
 
-    function SearchController() {
+    function SearchController($scope, SearchService) {
+        $scope.sportOptions = [
+          {
+            value: "NFL",
+            label: "NFL"
+          },
+          {
+            value: "MLB",
+            label: "MLB"
+          },
+          {
+            value: "NBA",
+            label: "NBA"
+          },
+          {
+            value: "NHL",
+            label: "NHL"
+          }
+        ]
+        $scope.teams = null;
 
+        $scope.findTeamsBySport = function(selectedSport) {
+          var teams = SearchService.findTeamsBySport(selectedSport);
+
+          if(findTeamsBySport) {
+            $scope.teams = teams;
+          } else {
+            alert("Error occurred when searching");
+          }
+        }
     }
 })();
