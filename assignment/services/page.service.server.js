@@ -1,6 +1,16 @@
 /**
  * Created by Jarred on 7/30/17.
  */
+// var websiteId = req.params.websiteId;
+// var newPage = req.body;
+// newPage.websiteId = websiteId;
+//
+// // var userId = req.params.userId;
+// // var newWebsite = req.body;
+// // newWebsite.developerId = userId;
+
+
+
 module.exports = function(app, models) {
 
     var pageModel = models.pageModel;
@@ -15,6 +25,7 @@ module.exports = function(app, models) {
     function createPage(req, res) {
         var newPage = req.body;
         var websiteId = req.params.websiteId;
+        newPage.websiteId = websiteId;
 
         pageModel
             .createPage(websiteId, newPage)
@@ -95,7 +106,7 @@ module.exports = function(app, models) {
                         .removePageIdFromWebsite(pageId, websiteId)
                 },
                 function(error) {
-                    res.status(404).send("Page with ID " + pageId + " not found");
+                    res.status(404).send("Unable to find page with ID " + pageId);
                 }
             ).then(
             function(status) {
@@ -110,7 +121,7 @@ module.exports = function(app, models) {
                 res.sendStatus(200);
             },
             function(error) {
-                res.status(404).send("Unable to remove page with ID " + pageId);
+                res.status(404).send("Unable to delete page with ID " + pageId);
             }
         )
     }

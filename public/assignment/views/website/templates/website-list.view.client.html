@@ -41,10 +41,10 @@
     <ul class="list-group">
         <li ng-repeat="website in model.websites"
             class="list-group-item">
-            <a href="#/user/{{website.developerId}}/website/{{website._id}}">
+            <a  href="#/user/{{model.uid}}/website/{{website._id}}">
                 <span class="glyphicon glyphicon-cog pull-right"></span>
             </a>
-            <a href="#/user/{{website.developerId}}/website/{{website._id}}/page">
+            <a  href="#/user/{{model.uid}}/website/{{website._id}}/page">
                 {{website.name}}
             </a>
         </li>
