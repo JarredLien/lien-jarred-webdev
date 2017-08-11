@@ -29,8 +29,7 @@
 
         $scope.findTeamsBySport = function(selectedSport) {
           var teams = SearchService.findTeamsBySport(selectedSport);
-
-          if(findTeamsBySport) {
+          if(teams) {
             $scope.teams = teams;
           } else {
             alert("Error occurred when searching");

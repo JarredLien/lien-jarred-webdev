@@ -27,9 +27,10 @@
             endpoint = "//api.sportradar.us/nba-t3/league/hierarchy.json?api_key=4uvxcvhy62szzwwm6st6ynab";
             break;
         }
+
         $http.get(endpoint)
           .then(function(res) {
-            console.log(res);
+            return res;
           });
       }
 
