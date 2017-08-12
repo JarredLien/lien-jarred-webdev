@@ -62,13 +62,20 @@
                 </li>
             </ul>
         </div>
-        <div class="col-xs-12 col-lg-9 jll-split-view-right">
-            <label for="name">Name</label>
-            <input name="firstName"
-                   placeholder="Facebook"
+        <div class="col-xs-12 col-lg-9 jll-split-view-right"
+             ng-class="{ 'has-error': form.name.$error.required && model.submitted}">
+            <label for="name">Website Name</label>
+            <input ng-model="name"
+                   name="name"
+                   id="name"
+                   type="text"
                    class="form-control"
-                   id="name"/>
-
+                   placeholder="Facebook"
+                   required/>
+            <span ng-show="form.name.$error.required && model.submitted"
+                  class="help-block">
+                Website name is required
+            </span>
             <label for="description">Description</label>
             <textarea name="firstName"
                       rows="5"

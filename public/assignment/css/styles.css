@@ -51,6 +51,14 @@ body {
     border-bottom-left-radius: 2px;
 }
 
+.jll-search {
+    padding-bottom: 5px;
+}
+
+.jll-flickr-image {
+    padding: 1px;
+}
+
 .youtube-widget {
     height: 0;
     position: relative;

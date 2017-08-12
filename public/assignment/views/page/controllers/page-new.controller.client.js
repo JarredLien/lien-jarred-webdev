@@ -8,13 +8,15 @@
 
     function NewPageController($location, $routeParams, PageService) {
         var vm = this;
+        vm.submitted = false;
         vm.createPage = createPage;
 
         vm.uid = $routeParams["uid"];
         vm.wid = $routeParams["wid"];
 
         function createPage(name, title) {
-            if (name != null) {
+            vm.submitted = true;
+            if (name != null && name != "") {
                 var newPage = {
                     name: name,
                     websiteId: vm.wid,
@@ -26,6 +28,7 @@
                         function (response) {
                             vm.success = "Created new website";
                             $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page");
+                            vm.submitted = false;
                         },
                         function (error) {
                             vm.error = error.data;

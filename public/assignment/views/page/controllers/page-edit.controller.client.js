@@ -8,6 +8,7 @@
 
     function EditPageController(PageService, $location, $routeParams) {
         var vm = this;
+        vm.submitted = false;
         vm.updatePage = updatePage;
         vm.deletePage = deletePage;
 
@@ -30,17 +31,23 @@
         init();
 
         function updatePage() {
-            var promise = PageService.updatePage(vm.pid, vm.page);
-            promise
-                .then(
-                    function (response) {
-                        vm.success = "Page Updated";
-                        $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page");
-                    },
-                    function (error) {
-                        vm.error = error.data;
-                    }
-                )
+            vm.submitted = true;
+            if (vm.page.name && vm.page.name != "") {
+                var promise = PageService.updatePage(vm.pid, vm.page);
+                promise
+                    .then(
+                        function (response) {
+                            vm.success = "Page Updated";
+                            $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page");
+                            vm.submitted = false;
+                        },
+                        function (error) {
+                            vm.error = error.data;
+                        }
+                    )
+            } else {
+                vm.error = "Enter a Page Name";
+            }
         }
 
         function deletePage() {
