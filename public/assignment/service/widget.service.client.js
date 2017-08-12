@@ -1,7 +1,7 @@
 /**
  * Created by Jarred on 7/25/17.
  */
-(function() {
+(function () {
     angular
         .module("WamApp")
         .factory("WidgetService", WidgetService);
@@ -13,7 +13,8 @@
             findWidgetsByPageId: findWidgetsByPageId,
             findWidgetById: findWidgetById,
             updateWidget: updateWidget,
-            deleteWidget: deleteWidget
+            deleteWidget: deleteWidget,
+            reorderWidget: reorderWidget
         };
         return api;
 
@@ -36,5 +37,10 @@
         function deleteWidget(widgetId) {
             return $http.delete("/api/widget/" + widgetId);
         }
+
+        function reorderWidget(pageId, startIndex, endIndex) {
+            return $http.put("/api/page/" + pageId + "/widget?start=" + startIndex + "&end=" + endIndex);
+        }
+
     }
 })();

@@ -3,8 +3,8 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand">Choose Widget</a>
-                <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget">
+                <a class="navbar-brand">Search Flickr</a>
+                <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{model.wgid}}">
                     <button type="button" class="navbar-toggle navbar-left" data-toggle="collapse"
                             data-target="#bs-example-navbar-collapse-2" aria-expanded="false" aria-label="Left Align">
                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -15,7 +15,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul class="nav navbar-nav navbar-left">
-                    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget">
+                    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{model.wgid}}">
                         <button type="button" class="btn btn-default" aria-label="Left Align">
                             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                         </button>
@@ -27,59 +27,28 @@
 </nav>
 
 <div class="container-fluid">
+    <div class="input-group jll-search">
+        <input ng-model="searchText"
+               type="text"
+               class="form-control"
+               placeholder="Search images">
+        <span class="input-group-btn">
+            <a ng-click="model.searchPhotos(searchText)"
+               class="btn btn-default"
+               type="button">
+                <span class="glyphicon glyphicon-search"></span>
+            </a>
+        </span>
+    </div>
 
-    <ul class="list-group">
-        <li class="list-group-item">
-            <a ng-click="model.createWidget('HEADER')">
-                Header
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="">
-                Label
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a ng-click="model.createWidget('HTML')">
-                HTML
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a  ng-click="model.createWidget('TEXT')">
-                Text Input
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="">
-                Link
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="">
-                Button
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a ng-click="model.createWidget('IMAGE')">
-                Image
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a ng-click="model.createWidget('YOUTUBE')">
-                YouTube
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="">
-                Data Table
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="">
-                Repeater
-            </a>
-        </li>
-    </ul>
+    <div class="row container-fluid">
+        <div class="col-xs-4 jll-flickr-image"
+             ng-repeat="photo in model.photos.photo">
+            <img ng-click="model.selectPhoto(photo)"
+                 width="100%"
+                 ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg"/>
+        </div>
+    </div>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
