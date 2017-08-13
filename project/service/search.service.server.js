@@ -15,7 +15,7 @@
 
             switch(sportId) {
                 case "NFL":
-                    endpoint = "//api.sportradar.us/nfl-ot2/league/hierarchy.json?api_key=xmddybpgv2um2g74uqcsh4qs";
+                    endpoint = "https://api.sportradar.us/nfl-ot2/league/hierarchy.json?api_key=qhr3qrja8x92gdj8uy7ruaz6";
                     break;
                 case "MLB":
                     endpoint = "//api.sportradar.us/mlb-t6/league/hierarchy.json?api_key=xw4m2y738ptck73tzhwake7b";
