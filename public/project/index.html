@@ -31,6 +31,7 @@
      <script src="service/user.service.client.js"></script>
     <script src="service/search.service.client.js"></script>
     <script src="service/standings.service.client.js"></script>
+    <script src="service/roster.service.client.js"></script>
 
     <script src="views/user/controllers/login.controller.client.js"></script>
     <script src="views/user/controllers/profile.controller.client.js"></script>
@@ -38,16 +39,24 @@
      -->
     <script src="views/search/controllers/search.controller.client.js"></script>
     <script src="views/standings/controllers/standings.controller.client.js"></script>
+    <script src="views/roster/controllers/roster.controller.client.js"></script>
 
 
 </head>
 <body>
 
-<a href="#profile">Profile</a>
-<a href="#search">Add/Remove Teams</a>
-<a href="#scores">Scores</a>
-<a href="#stats">Stats</a>
-<a href="#standings">Standings</a>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">SportApp</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#search">Teams</a></li>
+      <li><a href="#standings">Standings</a></li>
+    </ul>
+  </div>
+</nav>
 
 <div ng-view></div>
 
