@@ -3,7 +3,7 @@
  */
 (function() {
     angular
-        .module("WamApp")
+        .module("searchApp")
         .factory("UserService", UserService);
 
     function UserService($http) {

@@ -3,7 +3,7 @@
  */
 (function () {
     angular
-        .module("WamApp")
+        .module("searchApp")
         .controller("ProfileController", ProfileController);
 
     function ProfileController($location, $routeParams, UserService) {
