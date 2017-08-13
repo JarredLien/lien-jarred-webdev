@@ -3,7 +3,7 @@
  */
 (function() {
     angular
-        .module("WamApp")
+        .module("searchApp")
         .controller("LoginController", LoginController);
 
     function LoginController($location, UserService) {
