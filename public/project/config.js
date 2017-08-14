@@ -20,19 +20,14 @@
                 controller: "ProfileController",
                 controllerAs: "model"
             })
-            .when("/search", {
+            .when("/user/:uid/teams", {
                 templateUrl: "views/search/templates/search.view.client.html",
                 controller: "SearchController",
                 controllerAs: "model"
             })
-            .when("/scores", {
-                templateUrl: "views/scores/templates/scores.view.client.html",
-                controller: "ScoresController",
-                controllerAs: "model"
-            })
-            .when("/stats", {
-                templateUrl: "views/stats/templates/stats.view.client.html",
-                controller: "StatsController",
+            .when("/user/:uid/teams/:tid/roster", {
+                templateUrl: "views/roster/templates/roster.view.client.html",
+                controller: "RosterController",
                 controllerAs: "model"
             })
             .when("/standings", {
