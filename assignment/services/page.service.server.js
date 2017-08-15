@@ -31,8 +31,9 @@ module.exports = function(app, models) {
             .createPage(websiteId, newPage)
             .then(
                 function(page) {
+                    var pageId = page._id;
                     return websiteModel
-                        .addPageIdToWebsite(page._id, websiteId)
+                        .addPageIdToWebsite(pageId, websiteId)
                 },
                 function(error) {
                     res.status(400).send(error);
