@@ -12,23 +12,23 @@ module.exports = function() {
         findUserByUsername: findUserByUsername,
         updateUser: updateUser,
         deleteUser: deleteUser,
-        addWebsiteIdToUser: addWebsiteIdToUser,
-        removeWebsiteIdFromUser: removeWebsiteIdFromUser,
+        addTeamIdToUser: addTeamIdToUser,
+        removeTeamIdFromUser: removeTeamIdFromUser,
     };
     return api;
 
-    function addWebsiteIdToUser(websiteId, userId) {
+    function addTeamIdToUser(teamId, userId) {
         return User.findOne({_id: userId},
             function(err, doc) {
-                doc.websites.push(websiteId);
+                doc.teams.push(teamId);
                 doc.save();
             });
     }
 
-    function removeWebsiteIdFromUser(websiteId, userId) {
+    function removeTeamIdFromUser(teamId, userId) {
         return User.findOne({_id: userId},
             function(err, doc) {
-                doc.websites.pull(websiteId);
+                doc.teams.pull(teamId);
                 doc.save();
             });
     }
