@@ -25,15 +25,12 @@
             label: "NHL"
           }
         ]
-        $scope.teams = null;
+        $scope.conferences = null;
 
         $scope.findTeamsBySport = function(selectedSport) {
-          var teams = SearchService.findTeamsBySport(selectedSport);
-          if(teams) {
-            $scope.teams = teams;
-          } else {
-            alert("Error occurred when searching");
-          }
+          SearchService.findTeamsBySport(selectedSport).then(function(res) {
+            $scope.conferences = res.data.conferences || res.data.leagues;
+          });
         }
     }
 })();

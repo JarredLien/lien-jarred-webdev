@@ -15,24 +15,19 @@
 
             switch(sportId) {
                 case "NFL":
-                    endpoint = "//api.sportradar.us/nfl-ot2/seasontd/"+ year +"/standings.json?api_key=qhr3qrja8x92gdj8uy7ruaz6";
+                    endpoint = "/api/standings/NFL/" + year;
                     break;
                 case "MLB":
-                    endpoint = "//api.sportradar.us/mlb-t6/seasontd/"+ year +"/REG/standings.json?api_key=az76hm3ud4v28sttvhqau8em";
+                    endpoint = "/api/standings/MLB/" + year;
                     break;
                 case "NHL":
-                    endpoint = "//api.sportradar.us/nhl-ot4/seasontd/"+ year +"/REG/standings.json?api_key=wt9f89azus6dyf5tbq4eucqr";
+                    endpoint = "/api/standings/NHL/" + year;
                     break;
                 case "NBA":
-                    endpoint = "//api.sportradar.us/nhl-ot4/seasontd/"+ year +"/REG/standings.json?api_key=wt9f89azus6dyf5tbq4eucqr";
+                    endpoint = "/api/standings/NBA/" + year;
                     break;
             }
-
-            $http.get(endpoint)
-                .then(function(res) {
-                    return res;
-                });
+            return $http.get(endpoint)
         }
-
     }
 })();

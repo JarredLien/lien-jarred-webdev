@@ -25,15 +25,12 @@
             label: "NHL"
           }
         ]
-      $scope.standings = null;
+      $scope.conferences = null;
 
       $scope.findStandingsBySport = function(selectedSport) {
-        var standings = StandingsService.findStandingsBySport(selectedSport, "2016");
-        if(standings) {
-          $scope.standings = standings;
-        } else {
-          alert("Error occurred when searching");
-        }
+        StandingsService.findStandingsBySport(selectedSport, "2016").then(function(res) {
+          $scope.conferences = res.data.conferences || res.data.league.season.leagues;
+        });
       }
     }
 })();
