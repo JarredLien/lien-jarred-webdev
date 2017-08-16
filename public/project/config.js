@@ -35,6 +35,11 @@
                 controller: "StandingsController",
                 controllerAs: "model"
             })
+            .when("/roster", {
+                templateUrl: "views/roster/templates/roster.view.client.html",
+                controller: "RosterController",
+                controllerAs: "model"
+            })
             .otherwise({
                 redirectTo: "/login"
             });

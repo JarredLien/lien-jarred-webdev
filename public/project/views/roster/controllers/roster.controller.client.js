@@ -25,11 +25,11 @@
                 label: "NHL"
             }
         ]
-        $scope.conferences = null;
+        $scope.roster = null;
 
         $scope.findRosterByTeamID = function(selectedSport) {
             RosterService.findRosterByTeamID(selectedSport, "33405046-04ee-4058-a950-d606f8c30852").then(function(res) {
-                $scope.conferences = res.data.conferences || res.data.leagues;
+                $scope.roster = res.data.players;
             })
         }
     }
