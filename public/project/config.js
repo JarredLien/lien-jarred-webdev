@@ -20,6 +20,11 @@
                 controller: "ProfileController",
                 controllerAs: "model"
             })
+            .when("/teams", {
+                templateUrl: "views/search/templates/search.view.client.html",
+                controller: "SearchController",
+                controllerAs: "model"
+            })
             .when("/user/:uid/teams", {
                 templateUrl: "views/search/templates/search.view.client.html",
                 controller: "SearchController",
