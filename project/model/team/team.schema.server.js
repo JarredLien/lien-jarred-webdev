@@ -6,7 +6,7 @@ module.exports = function() {
         name: String,
         description: String,
         dateCreated: {type: Date, default: Date.now}
-    }, {collection: "assignment.team"});
+    }, {collection: "project.team"});
 
     return TeamSchema;
 };
