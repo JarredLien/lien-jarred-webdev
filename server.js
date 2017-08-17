@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
 
-require("./assignment/app")(app);
+require("./project/app")(app);
 
 app.get("/api/search/:sportId", function(req, res) {
   var endpoint = "";
