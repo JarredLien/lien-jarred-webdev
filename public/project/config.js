@@ -20,6 +20,11 @@
                 controller: "ProfileController",
                 controllerAs: "model"
             })
+            .when("/teams", {
+                templateUrl: "views/search/templates/search.view.client.html",
+                controller: "SearchController",
+                controllerAs: "model"
+            })
             .when("/user/:uid/teams", {
                 templateUrl: "views/search/templates/search.view.client.html",
                 controller: "SearchController",
@@ -33,6 +38,11 @@
             .when("/standings", {
                 templateUrl: "views/standings/templates/standings.view.client.html",
                 controller: "StandingsController",
+                controllerAs: "model"
+            })
+            .when("/roster", {
+                templateUrl: "views/roster/templates/roster.view.client.html",
+                controller: "RosterController",
                 controllerAs: "model"
             })
             .otherwise({
