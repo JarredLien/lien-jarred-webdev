@@ -30,8 +30,8 @@
                 controller: "SearchController",
                 controllerAs: "model"
             })
-            .when("/user/:uid/teams/:tid/roster", {
-                templateUrl: "views/roster/templates/roster.view.client.html",
+            .when("/roster/:sportId/:tid", {
+                templateUrl: "views/roster/templates/roster-list.view.client.html",
                 controller: "RosterController",
                 controllerAs: "model"
             })
@@ -42,7 +42,7 @@
             })
             .when("/roster", {
                 templateUrl: "views/roster/templates/roster.view.client.html",
-                controller: "RosterController",
+                controller: "SearchController",
                 controllerAs: "model"
             })
             .otherwise({

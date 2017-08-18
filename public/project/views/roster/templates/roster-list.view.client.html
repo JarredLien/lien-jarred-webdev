@@ -1,0 +1,5 @@
+<ul>
+    <li ng-repeat="player in roster track by $index">
+        {{player.name || player.full_name}} ({{player.jersey || player.jersey_number}})
+    </li>
+</ul>
