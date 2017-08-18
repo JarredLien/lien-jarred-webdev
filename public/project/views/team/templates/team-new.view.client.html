@@ -1,0 +1,120 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand">New Team</a>
+            <a ng-click="model.createTeam(name, description)">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                </button>
+            </a>
+            <a href="#/user/{{model.uid}}/team">
+                <button type="button" class="navbar-toggle navbar-left" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                </button>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <a ng-click="model.createTeam(name, description)">
+                    <button type="button" class="btn btn-default" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    </button>
+                </a>
+            </ul>
+            <ul class="nav navbar-nav navbar-left" id="bs-example-navbar-collapse-2">
+                <a href="#/user/{{model.uid}}/team">
+                    <button type="button" class="btn btn-default" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    </button>
+                </a>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-3 visible-lg jll-split-view-left">
+            <ul class="list-group">
+                <li class="list-group-item active">
+                    <div class="row">
+                        <div class="col-xs-10">New Team</div>
+                        <div class="col-xs-2">
+                            <a href="#/user/{{model.uid}}/team/new" style="color:white">
+                                <span class="pull-right glyphicon glyphicon-plus"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li ng-repeat="team in model.teams"
+                    class="list-group-item">
+                    <a href="#/user/{{team.developerId}}/team/{{team._id}}">
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                    <a href="#/user/{{team.developerId}}/team/{{team._id}}/page">
+                        {{team.name}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-lg-9 jll-split-view-right"
+             ng-class="{ 'has-error': form.name.$error.required && model.submitted}">
+            <label for="name">Team Name</label>
+            <input ng-model="name"
+                   name="name"
+                   id="name"
+                   type="text"
+                   class="form-control"
+                   placeholder="Facebook"
+                   required/>
+            <span ng-show="form.name.$error.required && model.submitted"
+                  class="help-block">
+                Team name is required
+            </span>
+            <label for="description">Description</label>
+            <textarea name="firstName"
+                      rows="5"
+                      placeholder="Largest country in the world"
+                      class="form-control"
+                      id="description"></textarea>
+        </div>
+    </div>
+
+    <a class="btn btn-default btn-primary btn-block"
+       ng-click="model.createTeam(name, description)"
+       role="button">Create</a>
+
+    <a class="btn btn-default btn-danger btn-block"
+       href="#/user/{{model.uid}}/team"
+       role="button">Cancel</a>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a href="#/user/{{model.uid}}">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-3" aria-expanded="false">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </button>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
+                <ul class="nav navbar-nav navbar-right">
+                    <a href="#/user/{{model.uid}}">
+                        <button type="button" class="btn btn-default" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        </button>
+                    </a>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</div>

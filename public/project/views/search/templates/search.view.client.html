@@ -1,0 +1,26 @@
+<select ng-model="selectedSport" ng-change="findTeamsBySport(selectedSport)">
+  <option ng-repeat="sport in sportOptions" value="{{sport.value}}">{{sport.label}}
+</select>
+
+<h3>Saved Teams</h3>
+<ul>
+  <li ng-repeat="team in savedTeams track by $index">
+    {{team.name}}
+  </li>
+</ul>
+
+<ul>
+  <li ng-repeat="conference in conferences track by $index">
+    {{conference.name}}
+    <ul>
+      <li ng-repeat="division in conference.divisions track by $index">
+        {{division.name}}
+        <ul>
+          <li ng-repeat="team in division.teams track by $index" ng-click="createTeam(team.name, team.id)">
+            {{team.name}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
