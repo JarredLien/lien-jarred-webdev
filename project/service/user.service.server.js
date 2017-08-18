@@ -1,106 +1,15 @@
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-
+/**
+ * Created by Jarred on 7/29/17.
+ */
 module.exports = function(app, models) {
 
     var userModel = models.userModel;
-
-    // var googleConfig = {
-    //     clientID     : process.env.GOOGLE_CLIENT_ID,
-    //     clientSecret : process.env.GOOGLE_CLIENT_SECRET,
-    //     callbackURL  : process.env.GOOGLE_CALLBACK_URL
-    // };
 
     app.get("/api/user", getUsers);
     app.post("/api/user", createUser);
     app.get("/api/user/:userId", findUserById);
     app.put("/api/user/:userId", updateUser);
     app.delete("/api/user/:userId", deleteUser);
-
-    passport.use('sportsonality', new LocalStrategy(localStrategy));
-    passport.use(new GoogleStrategy(googleConfig, googleStrategy));
-    passport.serializeUser(serializeUser);
-    passport.deserializeUser(deserializeUser);
-
-    function googleStrategy(token, refreshToken, profile, done) {
-        userModel
-            .findUserByGoogleId(profile.id)
-            .then(
-                function(user) {
-                    if(user) {
-                        return done(null, user);
-                    } else {
-                        var email = profile.emails[0].value;
-                        var emailParts = email.split("@");
-                        var newGoogleUser = {
-                            username:  emailParts[0],
-                            firstName: profile.name.givenName,
-                            lastName:  profile.name.familyName,
-                            email:     email,
-                            google: {
-                                id:    profile.id,
-                                token: token
-                            }
-                        };
-                        return userModel
-                            .createUser(newGoogleUser);
-                    }
-                },
-                function(err) {
-                    if (err) { return done(err); }
-                }
-            )
-            .then(
-                function(user){
-                    return done(null, user);
-                },
-                function(err){
-                    if (err) { return done(err); }
-                }
-            );
-    }
-
-
-    function serializeUser(user, done) {
-        done(null, user);
-    }
-
-    function deserializeUser(user, done) {
-        userModel
-            .findUserById(user._id)
-            .then(
-                function(user) {
-                    done(null, user);
-                },
-                function(err) {
-                    done(err, null);
-                }
-            );
-    }
-
-    function localStrategy(username, password, done) {
-        userModel
-            .findUserByUsername(username)
-            .then(
-                function(user) {
-                    if(user && !user.google.id && bcrypt.compareSync(password, user.password)) {
-                        return done(null, user);
-                    }
-                    else if (user && user.google.id) {
-                        return done(null, "googleUserError");
-                    }
-                    else {
-                        return done(null, false);
-                    }
-                },
-                function(err) {
-                    if (err) {
-                        return done(err);
-                    }
-                }
-            )
-    }
 
     function createUser(req, res) {
         var newUser = req.body;
