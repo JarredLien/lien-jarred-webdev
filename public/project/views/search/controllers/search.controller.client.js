@@ -54,7 +54,7 @@
                 promise
                     .then(
                         function (response) {
-
+                            confirm("Team Added To Profile");
                         },
                         function (error) {
                         }
