@@ -1,9 +1,19 @@
-<select ng-model="selectedSport" ng-change="findRosterByTeamID(selectedSport)">
-    <option ng-repeat="sport in sportOptions" value="{{sport.value}}">{{sport.label}}
+<select ng-model="selectedSport" ng-change="findTeamsBySport(selectedSport)">
+  <option ng-repeat="sport in sportOptions" value="{{sport.value}}">{{sport.label}}
 </select>
 
 <ul>
-    <li ng-repeat="player in roster track by $index">
-        {{player.name}} ({{player.jersey}})
-    </li>
+  <li ng-repeat="conference in conferences track by $index">
+    {{conference.name}}
+    <ul>
+      <li ng-repeat="division in conference.divisions track by $index">
+        {{division.name}}
+        <ul>
+          <li ng-repeat="team in division.teams track by $index">
+            <a href="#/roster/{{selectedSport}}/{{team.id}}">{{team.name}}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>

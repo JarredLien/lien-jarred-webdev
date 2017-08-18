@@ -6,7 +6,7 @@
         .module("searchApp")
         .controller("RosterController", RosterController);
 
-    function RosterController($scope, RosterService) {
+    function RosterController($scope, $routeParams, RosterService) {
         $scope.sportOptions = [
             {
                 value: "NFL",
@@ -27,10 +27,12 @@
         ]
         $scope.roster = null;
 
-        $scope.findRosterByTeamID = function(selectedSport) {
-            RosterService.findRosterByTeamID(selectedSport, "33405046-04ee-4058-a950-d606f8c30852").then(function(res) {
+        $scope.init = function() {
+            RosterService.findRosterByTeamID($routeParams["sportId"], $routeParams["tid"]).then(function(res) {
                 $scope.roster = res.data.players;
             })
         }
+
+        $scope.init();
     }
 })();
