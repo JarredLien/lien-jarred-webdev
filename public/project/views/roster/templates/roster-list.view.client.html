@@ -1,6 +1,6 @@
-<h3>Roster</h3>
+<h3>Roster ({{teamName}})</h3>
 <ul class="list-group">
-    <button type="button" class="list-group-item"ng-repeat="player in roster track by $index">
+    <button type="button" class="list-group-item" ng-repeat="player in roster track by $index">
         {{player.name || player.full_name}} ({{player.jersey || player.jersey_number}})
     </button>
 </ul>
